@@ -457,13 +457,11 @@ export
 |||
 ||| Rappel : drop 1 renvoie le reste d'une liste non-vide ou la liste vide.
 |||
-copyDownFirstColumn : Table -> Table -- TODO
+copyDownFirstColumn : Table -> Table
 copyDownFirstColumn [] = []
 copyDownFirstColumn (row :: rows) = 
-  let firstCell = head row
-  in map (\r => firstCell :: tail r) (row :: rows)
-
-
+  let firstCell : String = head row  -- Ensure firstCell is of type String
+  in (firstCell :: tail row) :: map (prepend firstCell) rows
 
 export
 ||| Ajoute une cellule de contenu donné au début d'une ligne de tableau.
