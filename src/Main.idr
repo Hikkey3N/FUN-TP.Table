@@ -58,11 +58,11 @@ main = do
 
   -- printLn (zipWithRank ['a' .. 'd'])
 
-  -- let table1 : Table = [["1","c"],["2","a"],["3","b"]]
+  let table1 : Table = [["1","c"],["2","a"],["3","b"]]
 
-  -- printLn (sortTable (<=) 1 table1)
+  printLn (sortTable (<=) 1 table1)
 
-  -- printLn (readDouble " 4.5 ")
+  printLn (readDouble " 4.5 ")
 
   -- let table2: Table = [["1","a"],["2","b"],["3","c"]]
   -- printLn (copyDownFirstColumn table2)

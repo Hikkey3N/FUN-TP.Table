@@ -638,6 +638,11 @@ export
 |||                wordsBy sep = ...
 |||
 wordsBy: Char -> String -> List String -- TODO
+wordsBy sep str = 
+  let chars = unpack str  -- Convert the String to a List Char
+      -- Group characters by the separator and filter out empty groups
+      groups = groupOn (== sep) chars
+  in map pack (filter (not . null) groups)  -- Convert back to String and filter out empty groups
 
 export
 ||| Convertit une chaîne au format CSV en un tableau, en se servant du séparateur
