@@ -1,0 +1,13 @@
+#! /bin/bash
+
+
+# Utilisation : dans un terminal, depuis le répertoire où ce trouve ce script :
+#
+#               ./repl
+
+# Compile partiellement le projet (vérification des types et de la syntaxes,
+# mais pas d'optimisation) et lance la boucle d'interaction d'Idris 2 avec les
+# fonctions définies ou importées par le projet visibles.
+#
+# Cela permet d'utiliser les fonctions du projet de façon interactive.
+rlwrap idris2 --repl main.ipkg

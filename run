@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Utilisation : dans un terminal, depuis le répertoire où ce trouve ce script :
+#
+#               ./run
+
+# Compile le projet. Idris 2 lit les fichiers `*.idr` constituant le programme et produit un exécutable dans le répertoire `build`.
+idris2 --build main.ipkg || exit
+
+# Si aucune erreur n'est survenue durant la compilation, exécute l'application générée par le compilateur.
+# Le point d'entrée du programme est la fonction `main` du fichier `Main.idr`.
+./build/exec/tp

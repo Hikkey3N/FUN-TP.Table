@@ -1,0 +1,21 @@
+package tp
+version = 0.1.0
+langversion >= 0.7.0
+depends = 
+    idrisGL
+  , containers
+  , contrib
+  , elab-util
+  , hedgehog
+  , pretty-show
+  , prim
+  , sop
+  , ansi
+  , istic
+
+
+modules = Main, Converter
+main = Main
+executable = "tp"
+sourcedir = "src"
+
