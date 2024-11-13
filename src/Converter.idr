@@ -173,15 +173,15 @@ export
 --       | op (last current) y = go op (current ++ [y]) ys  -- If y satisfies the predicate, add to the group
 --       | otherwise = current : go op [y] ys  -- Otherwise, start a new group with y
 
-groupBy : (a -> a -> Bool) -> List a -> List (List a) -- TODO
+groupBy : (a -> a -> Bool) -> List a -> List (List a)
 groupBy _ [] = []
-groupBy op (x :: xs) = buildGroup x xs []
+groupBy op (x :: xs) = buildGroup x xs [x]
   where
     buildGroup : a -> List a -> List a -> List (List a)
-    buildGroup last [] acc = [acc ++ [last]]
-    buildGroup last (x :: xs) acc = 
-      if op last x then buildGroup x xs (acc ++ [last])
-      else (acc ++ [last]) :: groupBy op (x :: xs)
+    buildGroup last [] acc = [acc]  -- Return the accumulated group
+    buildGroup last (y :: ys) acc = 
+      if op last y then buildGroup y ys (acc ++ [y])  -- Continue the group
+      else acc :: buildGroup y ys [y]  -- Start a new group with y
 
 
 export
@@ -329,6 +329,7 @@ export
 |||
 ||| groupOn (`mod` 2) [1,3,2,0,5,4,6,8,7] = [[1,3],[2,0],[5],[4,6,8],7]
 groupOn : Eq k => (a ->  k) -> List a -> List (List a) -- TODO
+-- groupOn f xs = groupBy (\x y => f x == f y) xs
 
 
 export
@@ -459,10 +460,7 @@ export
 ||| Rappel : drop 1 renvoie le reste d'une liste non-vide ou la liste vide.
 |||
 copyDownFirstColumn : Table -> Table
-copyDownFirstColumn [] = []
-copyDownFirstColumn (row :: rows) = 
-  let firstCell : String = head row  -- Ensure firstCell is of type String
-  in (firstCell :: tail row) :: map (prepend firstCell) rows
+
 
 export
 ||| Ajoute une cellule de contenu donné au début d'une ligne de tableau.
