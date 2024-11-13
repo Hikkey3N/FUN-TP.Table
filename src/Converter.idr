@@ -406,6 +406,7 @@ export
 |||   sortTable lte j = ...
 
 sortTable : (String -> String -> Bool) -> Nat -> Table -> Table -- TODO
+sortTable lte j table = sortBy (on lte (!! j)) table
 
 
 
