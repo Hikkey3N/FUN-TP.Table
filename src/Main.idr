@@ -64,8 +64,8 @@ main = do
 
   -- printLn (readDouble " 4.5 ")
 
-  -- let table2: Table = [["1","a"],["2","b"],["3","c"]]
-  -- printLn (copyDownFirstColumn table2)
+  let table2: Table = [["1","a"],["2","b"],["3","c"]]
+  printLn (copyDownFirstColumn table2)
 
   -- let row1 : Row = ["Haskell Curry", "18"] -- DONE
   -- printLn (prepend 5 row1) -- DONE

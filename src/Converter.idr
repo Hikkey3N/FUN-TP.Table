@@ -325,6 +325,7 @@ groupOn f xs = groupBy compareKeys xs
     compareKeys x y = f x == f y
 -- groupOn f xs = groupBy (\x y => f x == f y) xs
 
+
 export
 ||| Liste infinie des entiers naturels à partir du nombre donné
 |||
@@ -452,9 +453,14 @@ export
 |||
 ||| Rappel : drop 1 renvoie le reste d'une liste non-vide ou la liste vide.
 |||
-copyDownFirstColumn : Table -> Table -- TODO
+copyDownFirstColumn : Table -> Table
+copyDownFirstColumn [] = []
+copyDownFirstColumn (firstRow :: rest) =
+  case firstRow of
+    [] => []  -- Handle the case of an empty first row
+    (firstCell :: _) => firstRow :: (map (\row => firstCell :: drop 1 row) rest)  -- Prepend to each row and keep the first row unchanged
 
-
+  
 export
 ||| Ajoute une cellule de contenu donné au début d'une ligne de tableau.
 |||
