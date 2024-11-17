@@ -453,7 +453,7 @@ export
 |||
 ||| Rappel : drop 1 renvoie le reste d'une liste non-vide ou la liste vide.
 |||
-copyDownFirstColumn : Table -> Table
+copyDownFirstColumn : Table -> Table -- TODO
 copyDownFirstColumn [] = []
 copyDownFirstColumn (firstRow :: rest) =
   case firstRow of
@@ -481,7 +481,9 @@ export
 ||| Aide : utilisez la fonction précédente et un combinateur de fonctions
 |||        (cf. https://ipf.istic.univ-rennes1.fr/idris/prelude.html#combinateurs-de-fonctions-%C3%A0-conna%C3%AEtre-en-l2-et-l3)
 prepend' : Show a => (a,  Row) -> Row -- TODO
-prepend' = uncurry prepend
+prepend' (x, row) = prepend x row
+-- prepend' = uncurry prepend
+
 
 export
 ||| Ajoute une colonne à gauche d'un tableau, contenant le numéro de chaque ligne
@@ -498,7 +500,10 @@ export
 |||                  ["4", "D", "0"]]
 |||
 ||| Indice : utilisez prepend' et zipWithRank
-addRowNumbers : Table -> Table -- TODO
+addRowNumbers : Table -> Table
+addRowNumbers table = 
+  let numberedRows = zipWithRank table  -- Get the row numbers paired with the original rows
+  in map prepend' numberedRows  -- Prepend the row number to each row
 
 export
 ||| Scinde un tableau en plusieurs tableaux en regroupant les lignes adjacentes

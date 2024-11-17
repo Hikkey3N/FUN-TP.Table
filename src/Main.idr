@@ -52,7 +52,7 @@ main = do
 
   -- printLn (group [1,1,1,0,0,2,1,1])
 
-  printLn (groupOn (`mod` 2) [1,3,2,0,5,4,6,8,7])
+  -- printLn (groupOn (`mod` 2) [1,3,2,0,5,4,6,8,7])
 
   -- printLn (zipWithIndex ['a' .. 'd'])
 
@@ -64,8 +64,8 @@ main = do
 
   -- printLn (readDouble " 4.5 ")
 
-  let table2: Table = [["1","a"],["2","b"],["3","c"]]
-  printLn (copyDownFirstColumn table2)
+  -- let table2: Table = [["1","a"],["2","b"],["3","c"]]
+  -- printLn (copyDownFirstColumn table2)
 
   -- let row1 : Row = ["Haskell Curry", "18"] -- DONE
   -- printLn (prepend 5 row1) -- DONE
@@ -78,17 +78,17 @@ main = do
   -- let table4: Table = [ ["A","2"], ["B","2"], ["C","0"], ["D","0"], ["E","0"], ["F","2"], ["G","2"], ["H","1"], ["I","1"] ]
   -- printLn (groupOnColumn 1 table4)
 
-  let table5 : Table = [ ["Alan Turing",       "19.5"],
-                         ["Alonzo Church",     "20"  ],
-                         ["Bertrand Russell",  "18"  ],
-                         ["Dana Scott",        "19"  ],
-                         ["Haskell Curry",     "20"  ],
-                         ["Kurt Godel",        "17.5"],
-                         ["Per Martin-Lof",    "18"  ],
-                         ["Thierry Coquand",   "18"  ],
-                         ["Wilhelm Ackermann", "16"  ] ]
+  -- let table5 : Table = [ ["Alan Turing",       "19.5"],
+  --                        ["Alonzo Church",     "20"  ],
+  --                        ["Bertrand Russell",  "18"  ],
+  --                        ["Dana Scott",        "19"  ],
+  --                        ["Haskell Curry",     "20"  ],
+  --                        ["Kurt Godel",        "17.5"],
+  --                        ["Per Martin-Lof",    "18"  ],
+  --                        ["Thierry Coquand",   "18"  ],
+  --                        ["Wilhelm Ackermann", "16"  ] ]
 
-  printLn (ranks 1 table5)
+  -- printLn (ranks 1 table5)
 
   -- let row2 : Row = ["5", "Charles Darwin", "20"]
 
