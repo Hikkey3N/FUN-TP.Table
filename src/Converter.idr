@@ -162,18 +162,8 @@ export
 |||           suivant avec solution guidée, fait en L1 :
 |||
 |||           https://ipf.istic.univ-rennes1.fr/idris/tp/group.html
-|||
--- groupBy : (a -> a -> Bool) -> List a -> List (List a) -- TODO
--- groupBy _ [] = []  -- Base case: if the list is empty, return an empty list of groups
--- groupBy op (x:xs) = go op [x] xs  -- Start the grouping process with the first element
---   where
---     go :: (a -> a -> Bool) -> [a] -> [a] -> [[a]]
---     go _ current [] = [current]  -- If no more elements, return the current group
---     go op current (y:ys)
---       | op (last current) y = go op (current ++ [y]) ys  -- If y satisfies the predicate, add to the group
---       | otherwise = current : go op [y] ys  -- Otherwise, start a new group with y
 
-groupBy : (a -> a -> Bool) -> List a -> List (List a)
+groupBy : (a -> a -> Bool) -> List a -> List (List a) -- TODO
 groupBy _ [] = []
 groupBy op (x :: xs) = buildGroup x xs [x]
   where
@@ -329,8 +319,11 @@ export
 |||
 ||| groupOn (`mod` 2) [1,3,2,0,5,4,6,8,7] = [[1,3],[2,0],[5],[4,6,8],7]
 groupOn : Eq k => (a ->  k) -> List a -> List (List a) -- TODO
+groupOn f xs = groupBy compareKeys xs
+  where
+    compareKeys : a -> a -> Bool
+    compareKeys x y = f x == f y
 -- groupOn f xs = groupBy (\x y => f x == f y) xs
-
 
 export
 ||| Liste infinie des entiers naturels à partir du nombre donné

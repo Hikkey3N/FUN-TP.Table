@@ -52,7 +52,7 @@ main = do
 
   -- printLn (group [1,1,1,0,0,2,1,1])
 
-  -- printLn (groupOn (`mod` 2) [1,3,2,0,5,4,6,8,7])
+  printLn (groupOn (`mod` 2) [1,3,2,0,5,4,6,8,7])
 
   -- printLn (zipWithIndex ['a' .. 'd'])
 
