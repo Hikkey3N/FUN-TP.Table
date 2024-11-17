@@ -90,27 +90,27 @@ main = do
 
   -- printLn (ranks 1 table5)
 
-  -- let row2 : Row = ["5", "Charles Darwin", "20"]
+  let row2 : Row = ["5", "Charles Darwin", "20"]
 
-  -- putStrLn (row2html row2)
+  putStrLn (row2html row2)
  
-  -- let table6 : Table = [ ["5", "Charles Darwin", "20"],
-  --                        ["8", "Russel Wallace", "18"] ]
+  let table6 : Table = [ ["5", "Charles Darwin", "20"],
+                         ["8", "Russel Wallace", "18"] ]
 
-  -- putStrLn (table2html table6)
+  putStrLn (table2html table6)
 
-  -- printLn (wordsBy ';' "5;Charles Darwin;20")
+  printLn (wordsBy ';' "5;Charles Darwin;20")
 
-  -- printLn (csv2table ';' """      
-  --                        Alan Turing;19.5
-  --                        Alonzo Church;20
-  --                        Bertrand Russell;18
-  --                        Dana Scott;19
-  --                        Haskell Curry;20
-  --                        Kurt Godel;17.5
-  --                        Per Martin-Lof;18
-  --                        Thierry Coquand;18
-  --                        Wilhelm Ackermann;16
-  --                        """)
+  printLn (csv2table ';' """      
+                         Alan Turing;19.5
+                         Alonzo Church;20
+                         Bertrand Russell;18
+                         Dana Scott;19
+                         Haskell Curry;20
+                         Kurt Godel;17.5
+                         Per Martin-Lof;18
+                         Thierry Coquand;18
+                         Wilhelm Ackermann;16
+                         """)
 
   
