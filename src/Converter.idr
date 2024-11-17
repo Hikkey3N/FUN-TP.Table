@@ -459,7 +459,7 @@ export
 |||
 ||| Rappel : drop 1 renvoie le reste d'une liste non-vide ou la liste vide.
 |||
-copyDownFirstColumn : Table -> Table
+copyDownFirstColumn : Table -> Table -- TODO
 
 
 export
