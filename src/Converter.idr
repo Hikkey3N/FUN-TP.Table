@@ -459,7 +459,7 @@ copyDownFirstColumn (firstRow :: rest) =
   case firstRow of
     [] => []  -- Handle the case of an empty first row
     (firstCell :: _) => firstRow :: (map (\row => firstCell :: drop 1 row) rest)  -- Prepend to each row and keep the first row unchanged
-
+    
   
 export
 ||| Ajoute une cellule de contenu donné au début d'une ligne de tableau.
@@ -644,8 +644,7 @@ export
 wordsBy: Char -> String -> List String -- TODO
 wordsBy sep str = 
   let chars = unpack str  -- Convert the String to a List Char
-      -- Group characters by the separator and filter out empty groups
-      groups = groupOn (== sep) chars
+      groups = groupOn (== sep) chars -- Group characters by the separator and filter out empty groups
   in map pack (filter (not . null) groups)  -- Convert back to String and filter out empty groups
 
 export
