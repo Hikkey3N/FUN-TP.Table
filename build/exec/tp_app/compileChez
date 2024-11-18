@@ -1,1 +1,1 @@
-(parameterize ([optimize-level 3] [compile-file-message #f]) (compile-program "/home/idris/Univ/FUN/tpTable/build/exec/tp_app/tp.ss"))
+(parameterize ([optimize-level 3] [compile-file-message #f]) (compile-program "/home/idris/Documents/L3_S5/FUN_TP/FUN-TP.Table/build/exec/tp_app/tp.ss"))
