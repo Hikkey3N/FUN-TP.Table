@@ -641,11 +641,13 @@ export
 |||
 |||                wordsBy sep = ...
 |||
-wordsBy: Char -> String -> List String -- TODO
+wordsBy : Char -> String -> List String
 wordsBy sep str = 
-  let chars = unpack str  -- Convert the String to a List Char
-      groups = groupOn (== sep) chars -- Group characters by the separator and filter out empty groups
-  in map pack (filter (not . null) groups)  -- Convert back to String and filter out empty groups
+  let chars = unpack str  -- Convert the string to a list of characters
+      groups = groupOn (== sep) chars
+      filteredGroups = filter (\g => not (all (== sep) g)) groups
+  in map pack filteredGroups  -- Convert back to strings
+
 
 export
 ||| Convertit une chaîne au format CSV en un tableau, en se servant du séparateur
@@ -694,4 +696,4 @@ export
 ||| Utilisez la fonction html définie au début de ce document, ainsi que les
 ||| fonctions ranks, csv2table et table2html.
 process : CSV -> HTML -- TODO
-process csv = table2html (ranks 2 (csv2table ';' csv))
+process csv = table2html (ranks 1 (csv2table ';' csv))
