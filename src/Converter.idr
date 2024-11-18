@@ -695,4 +695,4 @@ export
 ||| Utilisez la fonction html définie au début de ce document, ainsi que les
 ||| fonctions ranks, csv2table et table2html.
 process : CSV -> HTML -- TODO
-process csv = table2html (ranks 1 (csv2table ';' csv))
+process csv = table2html (ranks 2 (csv2table ';' csv))

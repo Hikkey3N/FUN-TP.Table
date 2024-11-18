@@ -717,7 +717,7 @@
 (define Converter-ranks (lambda (arg-0 ext-0) (PreludeC-45Types-u--foldMap_Foldable_List (cons (lambda (arg-8474) (lambda (arg-8477) (PreludeC-45TypesC-45List-tailRecAppend arg-8474 arg-8477))) '()) (lambda (eta-0) eta-0) (PreludeC-45TypesC-45List-mapAppend '() (lambda (eta-0) (Converter-copyDownFirstColumn eta-0)) (Converter-groupOnColumn arg-0 (Converter-addRowNumbers (Converter-sortTable (lambda (eta-0) (lambda (eta-1) (Converter-descDoubleOrd eta-0 eta-1))) arg-0 ext-0)))))))
 (define Converter-row2html (lambda (arg-0) (string-append "<tr>" (string-append (PreludeC-45Types-u--foldMap_Foldable_List csegen-5 (lambda (u--cell) (string-append "<td>" (string-append u--cell "</td>"))) arg-0) "</tr>"))))
 (define Converter-table2html (lambda (arg-0) (string-append "<table>" (string-append (PreludeC-45Types-u--foldMap_Foldable_List csegen-5 (lambda (eta-0) (Converter-row2html eta-0)) arg-0) "</table>"))))
-(define Converter-process (lambda (arg-0) (Converter-table2html (Converter-ranks 1 (Converter-csv2table #\; arg-0)))))
+(define Converter-process (lambda (arg-0) (Converter-table2html (Converter-ranks 2 (Converter-csv2table #\; arg-0)))))
 (define DataC-45Fuel-forever (lambda () (box (lambda () (DataC-45Fuel-forever)))))
 (define PreludeC-45Interfaces-C-42C-62 (lambda (arg-3 arg-4 arg-5) (let ((e-3 (vector-ref arg-3 2))) ((((e-3 'erased) 'erased) (((let ((eff-0 (let ((e-6 (vector-ref arg-3 0))) e-6))) (lambda (arg-0) (lambda (arg-1) ((((eff-0 'erased) 'erased) arg-0) arg-1)))) (lambda (eta-0) (lambda (eta-1) eta-1))) arg-4)) arg-5))))
 (define PreludeC-45EqOrd-u--C-61C-61_Eq_Int (lambda (arg-0 arg-1) (let ((sc0 (or (and (= arg-0 arg-1) 1) 0))) (cond ((equal? sc0 0) 0)(else 1)))))
