@@ -168,10 +168,10 @@ groupBy _ [] = []
 groupBy op (x :: xs) = buildGroup x xs [x]
   where
     buildGroup : a -> List a -> List a -> List (List a)
-    buildGroup last [] acc = [acc]  -- Return the accumulated group
+    buildGroup last [] acc = [acc] 
     buildGroup last (y :: ys) acc = 
-      if op last y then buildGroup y ys (acc ++ [y])  -- Continue the group
-      else acc :: buildGroup y ys [y]  -- Start a new group with y
+      if op last y then buildGroup y ys (acc ++ [y]) 
+      else acc :: buildGroup y ys [y] 
 
 
 export
@@ -227,7 +227,7 @@ export
 ||| Renvoie l'élément d'indice donné de la liste donnée, ou bien la chaîne vide
 ||| si l'indice n'est pas valide. Le premier élément est celui d'incide 0.
 (!!) : List String -> Nat -> String -- TODO
-[] !! _ = ""  -- Return an empty string for invalid indices
+[] !! _ = "" 
 (x :: xs) !! Z = x
 (x :: xs) !! (S n) = xs !! n
 
@@ -323,7 +323,6 @@ groupOn f xs = groupBy compareKeys xs
   where
     compareKeys : a -> a -> Bool
     compareKeys x y = f x == f y
--- groupOn f xs = groupBy (\x y => f x == f y) xs
 
 
 export
@@ -457,8 +456,8 @@ copyDownFirstColumn : Table -> Table -- TODO
 copyDownFirstColumn [] = []
 copyDownFirstColumn (firstRow :: rest) =
   case firstRow of
-    [] => []  -- Handle the case of an empty first row
-    (firstCell :: _) => firstRow :: (map (\row => firstCell :: drop 1 row) rest)  -- Prepend to each row and keep the first row unchanged
+    [] => []
+    (firstCell :: _) => firstRow :: (map (\row => firstCell :: drop 1 row) rest)
     
   
 export
@@ -482,7 +481,7 @@ export
 |||        (cf. https://ipf.istic.univ-rennes1.fr/idris/prelude.html#combinateurs-de-fonctions-%C3%A0-conna%C3%AEtre-en-l2-et-l3)
 prepend' : Show a => (a,  Row) -> Row -- TODO
 prepend' (x, row) = prepend x row
--- prepend' = uncurry prepend
+
 
 
 export
@@ -500,10 +499,10 @@ export
 |||                  ["4", "D", "0"]]
 |||
 ||| Indice : utilisez prepend' et zipWithRank
-addRowNumbers : Table -> Table
+addRowNumbers : Table -> Table -- TODO
 addRowNumbers table = 
-  let numberedRows = zipWithRank table  -- Get the row numbers paired with the original rows
-  in map prepend' numberedRows  -- Prepend the row number to each row
+  let numberedRows = zipWithRank table
+  in map prepend' numberedRows
 
 export
 ||| Scinde un tableau en plusieurs tableaux en regroupant les lignes adjacentes
@@ -643,10 +642,10 @@ export
 |||
 wordsBy : Char -> String -> List String
 wordsBy sep str = 
-  let chars = unpack str  -- Convert the string to a list of characters
+  let chars = unpack str
       groups = groupOn (== sep) chars
       filteredGroups = filter (\g => not (all (== sep) g)) groups
-  in map pack filteredGroups  -- Convert back to strings
+  in map pack filteredGroups
 
 
 export
